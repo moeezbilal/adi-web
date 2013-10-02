@@ -1,22 +1,11 @@
-source 'http://rubygems.org'
-
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'rails','=3.1.1'
-#gem 'rails','>=3.0.0'
+ruby '1.9.3'
+gem  'mysql2'
 
-#gem 'mysql2'
-group :development do
-  gem 'mysql2',">0.3"
-end
-
-group :production do
-  gem 'pg'
-  gem 'therubyracer-heroku', '0.8.1.pre3'
-end
-
+# gem 'rails', '3.2.3'
+# gem install activerecord-mysql2-adapter
 
 
 # Use unicorn as the web server
@@ -26,6 +15,7 @@ end
 # gem 'capistrano'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
+source 'http://rubygems.org'
 # gem 'ruby-debug'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
@@ -46,6 +36,4 @@ gem "cancan"
 gem "jquery-rails"
 #gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 #gem "capybara", :group => [:development, :test]
-#gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
-
-
+gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'
