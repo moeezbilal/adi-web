@@ -4,7 +4,7 @@ layout "feedbacks"
   # GET /feedbacks
   # GET /feedbacks.json
   def index
-    @feedbacks = Feedback.all
+    @feedbacks = Feedback.find(:all, :conditions => ["name = ?",current_user.name])  #change
 
     respond_to do |format|
       format.html # index.html.erb
