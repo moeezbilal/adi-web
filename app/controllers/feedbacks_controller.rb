@@ -1,6 +1,6 @@
 class FeedbacksController < ApplicationController
-  #before_filter :authenticate_user!
-
+  before_filter :authenticate_user!
+layout "feedbacks"
   # GET /feedbacks
   # GET /feedbacks.json
   def index
@@ -16,7 +16,7 @@ class FeedbacksController < ApplicationController
   # GET /feedbacks/1.json
   def show
     @feedback = Feedback.find(params[:id])
-
+# puts"000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @feedback }
@@ -43,7 +43,7 @@ class FeedbacksController < ApplicationController
   # POST /feedbacks.json
   def create
     @feedback = Feedback.new(params[:feedback])
-
+@feedback.name=current_user.name
     respond_to do |format|
       if @feedback.save
         format.html { redirect_to @feedback, notice: 'Feedback was successfully created.' }
@@ -74,6 +74,7 @@ class FeedbacksController < ApplicationController
   # DELETE /feedbacks/1
   # DELETE /feedbacks/1.json
   def destroy
+   
     @feedback = Feedback.find(params[:id])
     @feedback.destroy
 
@@ -82,4 +83,12 @@ class FeedbacksController < ApplicationController
       format.json { head :ok }
     end
   end
+def search_results
+    @article=Feedback.find(:all, :conditions => ["title Like ?",'%'+params[:search]+'%'])  #change
+
+
 end
+
+
+end
+

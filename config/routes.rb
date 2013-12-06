@@ -16,7 +16,11 @@ Bootstrap::Application.routes.draw do
   resources :users
 
   get 'users/:id/edit2' => 'users#edit'
+  # get"/feedbacks/destroy"
+  # post"/feedbacks/destroy"
 
+get "/feedbacks/search_results"
+post "/feedbacks/search_results"
   # get "home/index"
 
   # The priority is based upon order of creation:
@@ -78,5 +82,6 @@ Bootstrap::Application.routes.draw do
   root :to => "home#index"
 #  match ':controller(/:action(/:id(.:format)))'
   match 'home/index' => 'home#index'
+
 
 end

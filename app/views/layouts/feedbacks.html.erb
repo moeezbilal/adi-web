@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+
+
+              <!DOCTYPE html>
 <!-- saved from url=(0036) -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Wikipedia</title>
+    <title >Wikipedia</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -37,30 +39,63 @@
     <div class="topbar" data-dropdown="dropdown">
       <div class="topbar-inner">
         <div class="container">
-
-          <ul class="nav">
+ 
+          <ul class="nav left-links">
             <li><a href="/home/index">Home</a></li>
             <li><%= link_to "Secure Page", secure_index_path %></li>
             <li><%= link_to "Article", feedbacks_path %></li>
           
           
           </ul>
+
+             <div   class="search_input"> 
+
+                <div id="floatl">
+<!--                     <form  action="search_results" method="post" name="search_form">
+        
+        
+                        <input class="input_field"   placeholder="Search for people, jobs, companies, and more..." autocomplete="off"  type="text" value="" name="search">
+                        <input  type="submit"  value="" id="btn">
+
+                    </form>         -->
+
+
+
+
+                    <%= form_tag(controller: "feedbacks", action: "search_results", method: "post" ) do %>
+
+                        <input class="input_field"   placeholder="Search for people, jobs, companies, and more..." autocomplete="off"  type="text" value="" name="search">
+  
+  <%= submit_tag("",:id=>"btn") %>
+
+
+  <% end %>
+
+
+
+
+
+
+                </div>
+              </div>
+
+
           <ul class="nav secondary-nav">
             <li class="dropdown">
-           		<% if user_signed_in? %>  
+              <% if user_signed_in? %>  
                 <a href="#" class="dropdown-toggle"><%= current_user.email %></a>
-          		<% else %>  
+              <% else %>  
               <a href="#" class="dropdown-toggle">Sign in</a>
-		          <% end %>
+              <% end %>
               <ul class="dropdown-menu">
-           			<% if user_signed_in? %>  
-          			<li><%= link_to "Edit profile", '/users/edit' %></li> 
-          			<li><%= link_to "Sign out", destroy_user_session_path %></li> 
-          			<% else %>  
-	          		<li><%= link_to "Sign up", new_user_registration_path %></li>
+                <% if user_signed_in? %>  
+                <li><%= link_to "Edit profile", '/users/edit' %></li> 
+                <li><%= link_to "Sign out", destroy_user_session_path %></li> 
+                <% else %>  
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
                 <li class="divider"></li>
-		          	<li><%= link_to "Sign in", new_user_session_path %></li>
-		          	<% end %>
+                <li><%= link_to "Sign in", new_user_session_path %></li>
+                <% end %>
               </ul>
             </li>
           </ul>
@@ -72,10 +107,10 @@
     <!-- Masthead (blueprinty thing)
     ================================================== -->
     <header class="jumbotron masthead" id="overview">
-     <h1 style="font-size:35px;"> Wikipedia</h1>
+     <h1 style="font-size:35px;padding-top:33px;"> Wikipedia</h1>
     </header>
 
-	<%= yield %>
+  <%= yield %>
 
 
     </section></div><!-- /container -->
