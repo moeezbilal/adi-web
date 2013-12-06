@@ -3,9 +3,9 @@ class CreateFeedbacks < ActiveRecord::Migration
     create_table :feedbacks do |t|
       t.string :title
       t.text :body
-      t.string :email
+      
       t.string :name
-
+t.integer :user_id
       t.timestamps
     end
   end
